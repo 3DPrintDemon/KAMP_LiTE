@@ -84,25 +84,6 @@ If you've got all that, you're ready for KAMP!
 
    SEE RELEASES
 
-3. Depending on what features you want from KAMP, you'll need to `[include]` some files in `KAMP_Settings.cfg`:
-
-<p align="center">
-<img src="./Photos/Include-Tutorial.gif">
-</p>
-
-  >**Note:**
-  > The KAMP configuration files are broken up like this to allow those who do not use bed probes to benefit from adaptive purging, and other features.
-
-4. After you `[include]` the features you want, be sure to restart your firmware so those inclusions take effect. Don't forget to add `[include KAMP_Settings.cfg]` to your `printer.cfg`!
-
-
-## How to use `KAMP_Settings.cfg`:
-<br>
-
-  >**Note:**
-  For ease of use and understanding, all KAMP configuration is contained inside of `KAMP_Settings.cfg`. Any changes you wish to make to KAMP specifically can be found here.
-
-<br>
 
 ## Adaptive Meshing:
 
