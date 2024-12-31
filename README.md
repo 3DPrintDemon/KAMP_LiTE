@@ -81,11 +81,6 @@ If you've got all that, you're ready for KAMP!
 
 ## Installation:
 
-The cleanest and easiest way to get started with KAMP is to use Moonraker's Update Manager utility. This will allow you to easily install and helps to provide future updates when more features are rolled out!
-
-1. `ssh` into your Klipper device and execute the following commands:
-
-
 
    SEE RELEASES
 
