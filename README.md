@@ -83,45 +83,8 @@ If you've got all that, you're ready for KAMP!
 
 The cleanest and easiest way to get started with KAMP is to use Moonraker's Update Manager utility. This will allow you to easily install and helps to provide future updates when more features are rolled out!
 
-1. `ssh` into your Klipper device and execute the following commands:
-   ```bash
-    cd
-    
-    git clone https://github.com/kyleisah/Klipper-Adaptive-Meshing-Purging.git
-    
-    ln -s ~/Klipper-Adaptive-Meshing-Purging/Configuration printer_data/config/KAMP
+1. See Release
 
-    cp ~/Klipper-Adaptive-Meshing-Purging/Configuration/KAMP_Settings.cfg ~/printer_data/config/KAMP_Settings.cfg
-    ```
-    > **Note:**
-    > This will change to the home directory, clone the KAMP repo, create a symbolic link of the repo to your printer's config folder, and create a copy of `KAMP_Settings.cfg` in your config directory, ready to edit.
-    > 
-    > It is also possible that with older setups of klipper or moonraker that your config path will be different. Be sure to use the correct config path for your machine when making the symbolic link, and when copying `KAMP_Settings.cfg` to your config directory.
-
-2. Open your `moonraker.conf` file and add this configuration:
-   ```yaml
-   [update_manager Klipper-Adaptive-Meshing-Purging]
-   type: git_repo
-   channel: dev
-   path: ~/Klipper-Adaptive-Meshing-Purging
-   origin: https://github.com/kyleisah/Klipper-Adaptive-Meshing-Purging.git
-   managed_services: klipper
-   primary_branch: main
-    ```
-
-    > **Note:**
-    > Whenever Moonraker configurations are changed, it must be restarted for changes to take effect. If you do not want moonraker to notify you of future updates to KAMP, feel free to skip this.
-
-3. Depending on what features you want from KAMP, you'll need to `[include]` some files in `KAMP_Settings.cfg`:
-
-<p align="center">
-<img src="./Photos/Include-Tutorial.gif">
-</p>
-
-  >**Note:**
-  > The KAMP configuration files are broken up like this to allow those who do not use bed probes to benefit from adaptive purging, and other features.
-
-4. After you `[include]` the features you want, be sure to restart your firmware so those inclusions take effect. Don't forget to add `[include KAMP_Settings.cfg]` to your `printer.cfg`!
 
 
 ## How to use `KAMP_Settings.cfg`:
@@ -131,28 +94,6 @@ The cleanest and easiest way to get started with KAMP is to use Moonraker's Upda
   For ease of use and understanding, all KAMP configuration is contained inside of `KAMP_Settings.cfg`. Any changes you wish to make to KAMP specifically can be found here.
 
 <br>
-
-## Adaptive Meshing:
-
-* Mesh generation and adjustment:
-
-  * These variables affect how KAMP creates meshes:
-
-    * `mesh_margin:` This is the amount of space in millimeters **beyond** your print area to further increase the size of the adapted mesh. Rather than a mesh starting at `X50 Y50`, if `Mesh_Margin` is set to `10`, the mesh will be stretched, and the new mesh bounds will start at `X40 Y40` instead. This can be useful for those who commonly use brims when printing. By default, this value is 0.
-
-    * `fuzz_amount:` This is the **maximum** amount that the mesh bounds can be increased in millimeters *by random*. This setting is really only intended for those who use a nozzle-based probe like a strain gauge or Voron Tap. This will slightly randomize the bounds of the bed mesh which will help to spread out wear on your print surface when printing multiples of the same print job (several plates of similar size). By default, this value is 0. **Maximum** `fuzz_amount` recommended is `3`.
-
-<br>
-
-* Using a probe that is not integrated into the printhead (Klicky, Euclid, etc)
-  
-  * Usually have special macros that are used to attach and detach the probe specifically for mesh leveling. **Those need to be removed/uncommented from your config or they will cause issues.** We will instead call the docking/undocking macros inside of KAMP.
-
-    * `probe_dock_enable:` By default, this setting is `False`. Set this to `True` if your machine has a probe that needs to be attached with a special macro before probing the bed.
-
-    * `attach_macro:` Define the macro that your machine uses to attach the probe here.
-
-    * `detach_macro:` Define the macro that your machine uses to detach the probe here.
 
 ## Adaptive Purging:
 
