@@ -17,7 +17,6 @@
   <a href="#key-features">Key Features</a> •
   <a href="#requirements">Requirements</a> •
   <a href="#installation">Installation</a> •
-  <a href="#adaptive-meshing">Adaptive Meshing</a> •
   <a href="#adaptive-purging">Adaptive Purging</a> •
   <a href="#troubleshooting">Troubleshooting</a> •
   <a href="#credits">Credits</a>
